@@ -7,3 +7,20 @@
 html {
   font-size: 62.5%;
 }
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.6rem;
+  line-height: 1.6;
+  background-image: url(./assets/bgPC.svg);
+  background-repeat: no-repeat;
+  background-size: cover; 
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+@media (max-width: 1200) {
+  body {
+    background-image: url(./assets/bgTab.svg);
+  }
+}
