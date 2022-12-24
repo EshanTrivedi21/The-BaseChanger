@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/The-BaseChanger/static/css/main.0143339f.css",
+    "main.js": "/The-BaseChanger/static/js/main.4bd63cd1.js",
+    "index.html": "/The-BaseChanger/index.html",
+    "static/media/bgPC.svg": "/The-BaseChanger/static/media/bgPC.f964debcc48e5ab83530.svg",
+    "main.0143339f.css.map": "/The-BaseChanger/static/css/main.0143339f.css.map",
+    "main.4bd63cd1.js.map": "/The-BaseChanger/static/js/main.4bd63cd1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0143339f.css",
+    "static/js/main.4bd63cd1.js"
+  ]
+}

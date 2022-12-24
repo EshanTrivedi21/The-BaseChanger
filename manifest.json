@@ -1,0 +1,8 @@
+{
+  "short_name": "The BaseChanger",
+  "name": "Your All in One Numeral Convertor Tool",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
