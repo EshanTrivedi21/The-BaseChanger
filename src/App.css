@@ -1,26 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html {
-  font-size: 62.5%;
-}
-
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 1.6rem;
   line-height: 1.6;
   background-image: url(./assets/bgPC.svg);
   background-repeat: no-repeat;
-  background-size: cover; 
+  background-size: cover;
   min-height: 100vh;
   overflow: hidden;
-}
-
-@media (max-width: 1200) {
-  body {
-    background-image: url(./assets/bgTab.svg);
-  }
 }
