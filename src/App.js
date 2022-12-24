@@ -28,25 +28,26 @@ function App() {
             <Box
               sx={{
                 width: "100%",
-                minHeight: { mobile: "100vh", tablet: "50vh", laptop: "50vh" },
+                minHeight: {mobile:"100vh", tablet:"auto", laptop:"auto"},
                 backgroundColor: "white",
                 my: "50vh",
-                py: 7,
+                p: 7,
+                py : {mobile:10, tablet:7, laptop:7},
                 transform: "translateY(-50%)",
                 overflow: "hidden",
               }}
             >
               <Typography variant="h4" align="center">
-                Number System Convertor
+                The BaseChanger.
               </Typography>
               <Grid
                 container
                 justifyContent="center"
                 spacing={2}
                 rowGap={3}
-                sx={{ my: "30px" }}
+                my="50px"
               >
-                <Grid item laptop={5}>
+                <Grid item laptop={6} tablet={6} mobile={12}>
                   <FormControl fullWidth>
                     <InputLabel id="inputType-label">From</InputLabel>
                     <Select
@@ -69,7 +70,7 @@ function App() {
                     </Select>
                   </FormControl>
                 </Grid>
-                <Grid item laptop={5}>
+                <Grid item laptop={6} tablet={6} mobile={12}>
                   <FormControl fullWidth>
                     <InputLabel id="outputType-label">To</InputLabel>
                     <Select
@@ -92,7 +93,7 @@ function App() {
                     </Select>
                   </FormControl>
                 </Grid>
-                <Grid item laptop={5}>
+                <Grid item laptop={6} tablet={6} mobile={12}>
                   <TextField
                     id="inputValue"
                     label="Input Value"
@@ -100,7 +101,7 @@ function App() {
                     fullWidth
                   />
                 </Grid>
-                <Grid item laptop={5}>
+                <Grid item laptop={6} tablet={6} mobile={12}>
                   <TextField
                     id="outputValue"
                     value="Output Value"
@@ -118,17 +119,16 @@ function App() {
               <Grid
                 container
                 direction="row"
-                justifyContent="flex-end"
+                justifyContent= {{mobile:"center", tablet:"flex-end", laptop:"flex-end"}}
                 alignContent="center"
-                width="90%"
-                sx={{
-                  marginTop: "50px",
-                }}
+                columnSpacing={2}
+                sx={{marginTop:"70px"}}
+        
               >
-                <Grid item laptop={2.25}>
+                <Grid item >
                 <Button variant="text">Reset</Button>
                 </Grid>
-                <Grid item laptop={2.4}>
+                <Grid item>
                 <Button variant="outlined">Convert</Button>
                 </Grid>
               </Grid>

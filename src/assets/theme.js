@@ -23,6 +23,9 @@ const theme = createTheme({
     allVariants: {
       color: "#001220",
     },
+    h4: {
+      fontSize: "2rem",
+    }
   },
   components: {
     MuiSelect: {
@@ -38,7 +41,8 @@ const theme = createTheme({
         root: {
           color: "#001220", 
           backgroundColor: "#A7233A10",
-          padding: "5px 25px",
+          padding: "5px 30px",
+          fontSize: "1.05rem",
         }
       }
     }
