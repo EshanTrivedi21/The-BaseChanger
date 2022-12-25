@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import logic from "./logic";
+import  ValidInput from "./logic";
 import "./App.css";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
@@ -144,7 +145,7 @@ function App() {
                 <Grid item>
                   <Button
                     variant="outlined"
-                    onClick={() => {
+                    onClick={() => {                      
                       logic(inputType, outputType, inputValue)
                         ? setOutputValue(
                             logic(inputType, outputType, inputValue)
