@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import logic from "./logic";
 import "./App.css";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
@@ -22,11 +23,7 @@ function App() {
     setOutputType("");
     setInputValue("");
     setOutputValue("");
-  }
-
-  const calculateAns = () => {
-    
-  }
+  };
 
   return (
     <>
@@ -36,11 +33,11 @@ function App() {
             <Box
               sx={{
                 width: "100%",
-                minHeight: {mobile:"100vh", tablet:"auto", laptop:"auto"},
+                minHeight: { mobile: "100vh", tablet: "auto", laptop: "auto" },
                 backgroundColor: "white",
                 my: "50vh",
                 p: 7,
-                py : {mobile:10, tablet:7, laptop:7},
+                py: { mobile: 10, tablet: 7, laptop: 7 },
                 transform: "translateY(-50%)",
                 overflow: "hidden",
               }}
@@ -74,7 +71,6 @@ function App() {
                       <MenuItem value={4}>BCD</MenuItem>
                       <MenuItem value={5}>XS3</MenuItem>
                       <MenuItem value={6}>Gray</MenuItem>
-                      <MenuItem value={7}>Ascii</MenuItem>
                     </Select>
                   </FormControl>
                 </Grid>
@@ -97,7 +93,6 @@ function App() {
                       <MenuItem value={4}>BCD</MenuItem>
                       <MenuItem value={5}>XS3</MenuItem>
                       <MenuItem value={6}>Gray</MenuItem>
-                      <MenuItem value={7}>Ascii</MenuItem>
                     </Select>
                   </FormControl>
                 </Grid>
@@ -132,17 +127,33 @@ function App() {
               <Grid
                 container
                 direction="row"
-                justifyContent= {{mobile:"center", tablet:"flex-end", laptop:"flex-end"}}
+                justifyContent={{
+                  mobile: "center",
+                  tablet: "flex-end",
+                  laptop: "flex-end",
+                }}
                 alignContent="center"
                 columnSpacing={2}
-                sx={{marginTop:"70px"}}
-        
+                sx={{ marginTop: "70px" }}
               >
-                <Grid item >
-                <Button variant="text" onClick={clearAll}>Reset</Button>
+                <Grid item>
+                  <Button variant="text" onClick={clearAll}>
+                    Reset
+                  </Button>
                 </Grid>
                 <Grid item>
-                <Button variant="outlined" onClick={calculateAns}>Convert</Button>
+                  <Button
+                    variant="outlined"
+                    onClick={() => {
+                      logic(inputType, outputType, inputValue)
+                        ? setOutputValue(
+                            logic(inputType, outputType, inputValue)
+                          )
+                        : setOutputValue("Invalid Input");
+                    }}
+                  >
+                    Convert
+                  </Button>
                 </Grid>
               </Grid>
             </Box>
