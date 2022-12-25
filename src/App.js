@@ -13,12 +13,20 @@ import TextField from "@mui/material/TextField";
 
 function App() {
   const [inputType, setInputType] = useState("");
-  const [outputType, setoutputType] = useState("");
+  const [outputType, setOutputType] = useState("");
+  const [inputValue, setInputValue] = useState("");
+  const [outputValue, setOutputValue] = useState("");
 
-  const handleChange = (event) => {
-    setInputType(event.target.value);
-    setoutputType(event.target.value);
-  };
+  const clearAll = () => {
+    setInputType("");
+    setOutputType("");
+    setInputValue("");
+    setOutputValue("");
+  }
+
+  const calculateAns = () => {
+    
+  }
 
   return (
     <>
@@ -79,7 +87,7 @@ function App() {
                       value={outputType}
                       label="To"
                       onChange={(e) => {
-                        setoutputType(e.target.value);
+                        setOutputType(e.target.value);
                       }}
                     >
                       <MenuItem value={0}>Decimal</MenuItem>
@@ -98,13 +106,18 @@ function App() {
                     id="inputValue"
                     label="Input Value"
                     variant="outlined"
+                    value={inputValue}
+                    onChange={(e) => {
+                      setInputValue(e.target.value);
+                    }}
                     fullWidth
                   />
                 </Grid>
                 <Grid item laptop={6} tablet={6} mobile={12}>
                   <TextField
                     id="outputValue"
-                    value="Output Value"
+                    placeholder="Output Value"
+                    value={outputValue}
                     variant="outlined"
                     fullWidth
                     disabled
@@ -126,10 +139,10 @@ function App() {
         
               >
                 <Grid item >
-                <Button variant="text">Reset</Button>
+                <Button variant="text" onClick={clearAll}>Reset</Button>
                 </Grid>
                 <Grid item>
-                <Button variant="outlined">Convert</Button>
+                <Button variant="outlined" onClick={calculateAns}>Convert</Button>
                 </Grid>
               </Grid>
             </Box>
