@@ -27,25 +27,7 @@ function ValidInput(inputType, str) {
       }
       break;
     case "Hexadecimal":
-      const HexaValues = [
-        "0",
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "10",
-        "A",
-        "B",
-        "C",
-        "D",
-        "E",
-        "F",
-      ];
+      const HexaValues = ["0","1","2","3","4","5","6","7","8","9","10","A","B","C","D","E","F",];
       for (let i = 0; i < str.length; i++) {
         if (HexaValues.includes(str[i])) isValid = true;
         else {
@@ -83,21 +65,30 @@ const BCDtoDecimal = (inputValue) => {
 
 const DecimaltoBCD = (inputValue) => {
   let arr = inputValue.split(""); let str = "";
-  console.log(arr);
   for (let i = 0; i < arr.length; i++) {
     str = str + parseInt(arr[i], 10).toString(2).padStart(4, "0");
-    console.log(str);
   }
   return str ? str : "Invalid Input";
 };
 
-// const XS3toDecimal = () => {
-//   //code
-// };
+const XS3toDecimal = (inputValue) => {
+  let str = "";
+  if (ValidInput("BCD", inputValue)) {
+    let arr = inputValue.match(/.{1,4}/g);
+    for (let i = 0; i < arr.length; i++) {
+      str = str + (parseInt((arr[i]), 2)-3).toString();
+    }
+  }
+  return str ? str : "Invalid Input";
+};
 
-// const DecimaltoXS3 = () => {
-//   //code
-// };
+const DecimaltoXS3 = (inputValue) => {
+  let arr = inputValue.split(""); let str = "";
+  for (let i = 0; i < arr.length; i++) {
+    str = str + (parseInt(arr[i], 10)+3).toString(2).padStart(4, "0");
+  }
+  return str ? str : "Invalid Input";
+};
 
 // const GraytoDecimal = () => {
 //   //code
@@ -139,6 +130,10 @@ export default function logic(inputType, outputType, inputValue) {
         return BCDtoDecimal(inputValue);
       case "DecimaltoBCD":
         return DecimaltoBCD(inputValue);
+      case "XS3toDecimal":
+        return XS3toDecimal(inputValue);
+      case "DecimaltoXS3":
+        return DecimaltoXS3(inputValue);
     }
   }
 }
