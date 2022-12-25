@@ -40,8 +40,7 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           color: "#001220", 
-          backgroundColor: "#A7233A10",
-          padding: "5px 30px",
+          padding: "5px 25px",
           fontSize: "1.05rem",
         }
       }

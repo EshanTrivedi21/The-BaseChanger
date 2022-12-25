@@ -128,12 +128,12 @@ function App() {
                 container
                 direction="row"
                 justifyContent={{
-                  mobile: "center",
+                  mobile: "space-between",
                   tablet: "flex-end",
                   laptop: "flex-end",
                 }}
                 alignContent="center"
-                columnSpacing={2}
+                columnSpacing={1}
                 sx={{ marginTop: "70px" }}
               >
                 <Grid item>
