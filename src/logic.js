@@ -91,8 +91,22 @@ const DecimaltoHexadecimal = (inp) => {
   return Number(parseInt(inp)).toString(16);
 };
 
-const BCDtoDecimal = () => {
-  //code
+const BCDtoDecimal = (inp) => {
+  const num = inp.split(" ");
+  let str=" ";
+  for(let i = 0; i < num.length;i++){
+    let currNum = num[i];
+    if(ValidInput(1,currNum) === true)
+    {
+      str = str + (BinarytoDecimal(currNum)).toString();
+      console.log(str);
+    }
+    else{
+      break;
+    }
+}
+
+return str;
 };
 
 const DecimaltoBCD = (n) => {
