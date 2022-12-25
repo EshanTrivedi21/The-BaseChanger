@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import logic from "./logic";
-import  ValidInput from "./logic";
 import "./App.css";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
@@ -65,13 +64,13 @@ function App() {
                         setInputType(e.target.value);
                       }}
                     >
-                      <MenuItem value={0}>Decimal</MenuItem>
-                      <MenuItem value={1}>Binary</MenuItem>
-                      <MenuItem value={2}>Octal</MenuItem>
-                      <MenuItem value={3}>Hexadecimal</MenuItem>
-                      <MenuItem value={4}>BCD</MenuItem>
-                      <MenuItem value={5}>XS3</MenuItem>
-                      <MenuItem value={6}>Gray</MenuItem>
+                      <MenuItem value="Decimal">Decimal</MenuItem>
+                      <MenuItem value="Binary">Binary</MenuItem>
+                      <MenuItem value="Octal">Octal</MenuItem>
+                      <MenuItem value="Hexadecimal">Hexadecimal</MenuItem>
+                      <MenuItem value="BCD">BCD</MenuItem>
+                      <MenuItem value="XS3">XS3</MenuItem>
+                      <MenuItem value="Gray">Gray</MenuItem>
                     </Select>
                   </FormControl>
                 </Grid>
@@ -87,13 +86,13 @@ function App() {
                         setOutputType(e.target.value);
                       }}
                     >
-                      <MenuItem value={0}>Decimal</MenuItem>
-                      <MenuItem value={1}>Binary</MenuItem>
-                      <MenuItem value={2}>Octal</MenuItem>
-                      <MenuItem value={3}>Hexadecimal</MenuItem>
-                      <MenuItem value={4}>BCD</MenuItem>
-                      <MenuItem value={5}>XS3</MenuItem>
-                      <MenuItem value={6}>Gray</MenuItem>
+                      <MenuItem value="Decimal">Decimal</MenuItem>
+                      <MenuItem value="Binary">Binary</MenuItem>
+                      <MenuItem value="Octal">Octal</MenuItem>
+                      <MenuItem value="Hexadecimal">Hexadecimal</MenuItem>
+                      <MenuItem value="BCD">BCD</MenuItem>
+                      <MenuItem value="XS3">XS3</MenuItem>
+                      <MenuItem value="Gray">Gray</MenuItem>
                     </Select>
                   </FormControl>
                 </Grid>
@@ -145,12 +144,8 @@ function App() {
                 <Grid item>
                   <Button
                     variant="outlined"
-                    onClick={() => {                      
-                      logic(inputType, outputType, inputValue)
-                        ? setOutputValue(
-                            logic(inputType, outputType, inputValue)
-                          )
-                        : setOutputValue("Invalid Input");
+                    onClick={() => {
+                      setOutputValue(logic(inputType, outputType, inputValue));
                     }}
                   >
                     Convert
