@@ -29,114 +29,87 @@ function ValidInput(inputType, str) {
   if (isValid === true) return str;
 }
 
-const BinarytoDecimal = (inputValue) => {return ValidInput("Binary", inputValue) ? parseInt(inputValue, 2) : "Invalid Input";};
-
-const DecimaltoBinary = (inputValue) => {return ValidInput("Decimal", inputValue) ? Number(parseInt(inputValue)).toString(2) : "Invalid Input";};
-
-const OctaltoDecimal = (inputValue) => {return ValidInput("Octal", inputValue) ? parseInt(inputValue, 8) : "Invalid Input";};
-
-const DecimaltoOctal = (inputValue) => {return ValidInput("Decimal", inputValue) ? Number(parseInt(inputValue)).toString(8) : "Invalid Input";};
-
-const HexadecimaltoDecimal = (inputValue) => {return ValidInput("Hexadecimal", inputValue) ? parseInt(inputValue, 16) : "Invalid Input";};
-
-const DecimaltoHexadecimal = (inputValue) => {return ValidInput("Decimal", inputValue) ? Number(parseInt(inputValue)).toString(16) : "Invalid Input";};
-
-const BCDtoDecimal = (inputValue) => {
-  let str = "";
-  if (ValidInput("BCD", inputValue)) {
-    let arr = inputValue.match(/.{1,4}/g);
-    for (let i = 0; i < arr.length; i++) {
-      str += parseInt(arr[i], 2).toString();
-    }
+function InputtoDecimal(inputType, inputValue) {
+  switch (inputType) {
+    case "Decimal":
+      return ValidInput("Decimal", inputValue) ? inputValue : "Invalid Input";
+    case "Binary": 
+      return ValidInput("Binary", inputValue) ? parseInt(inputValue, 2) : "Invalid Input";
+    case "Octal":
+      return ValidInput("Octal", inputValue) ? parseInt(inputValue, 8) : "Invalid Input";
+    case "Hexadecimal":
+      return ValidInput("Hexadecimal", inputValue) ? parseInt(inputValue, 16) : "Invalid Input";
+    case "BCD":
+      let strBCD = "";
+      if (ValidInput("BCD", inputValue)) {
+        let arr = inputValue.match(/.{1,4}/g);
+        for (let i = 0; i < arr.length; i++) {
+          strBCD += parseInt(arr[i], 2).toString();
+        }
+      }
+      return strBCD ? strBCD : "Invalid Input";
+    case "XS3":
+      let strXS3 = "";
+      if (ValidInput("BCD", inputValue)) {
+        let arr = inputValue.match(/.{1,4}/g);
+        for (let i = 0; i < arr.length; i++) {
+          strXS3 += (parseInt(arr[i], 2) - 3).toString();
+        }
+      }
+      return strXS3 ? strXS3 : "Invalid Input";
+    case "Gray":
+      let strGray = 0, flag = false; 
+      if (ValidInput("Binary", inputValue)) {
+        let n = parseInt(inputValue, 2);
+        for (; n; n = n >> 1) {
+          strGray ^= n; flag = true;
+        }
+      }
+      return flag ? strGray : "Invalid Input";
+    default: break;
   }
-  return str ? str : "Invalid Input";
-};
-
-const DecimaltoBCD = (inputValue) => {
-  let str = "";
-  if (ValidInput("Decimal", inputValue)) {
-    let arr = inputValue.split("");
-    for (let i = 0; i < arr.length; i++) {
-      str += parseInt(arr[i], 10).toString(2).padStart(4, "0");
-    }
-  }
-  return str ? str : "Invalid Input";
-};
-
-const XS3toDecimal = (inputValue) => {
-  let str = "";
-  if (ValidInput("BCD", inputValue)) {
-    let arr = inputValue.match(/.{1,4}/g);
-    for (let i = 0; i < arr.length; i++) {
-      str += (parseInt(arr[i], 2) - 3).toString();
-    }
-  }
-  return str ? str : "Invalid Input";
-};
-
-const DecimaltoXS3 = (inputValue) => {
-  let str = "";
-  if (ValidInput("Decimal", inputValue)) {
-    let arr = inputValue.split("");
-    for (let i = 0; i < arr.length; i++) {
-    str += (parseInt(arr[i], 10) + 3).toString(2).padStart(4, "0");
-    }
-  }
-  return str ? str : "Invalid Input";
-};
-
-const GraytoDecimal = (inputValue) => {
-  let str = 0, flag = false; 
-  if (ValidInput("Binary", inputValue)) {
-    for (; inputValue; inputValue = inputValue >> 1) {
-      str ^= inputValue; flag = true;
-    }
-  }
-  return flag ? str : "Invalid Input";
-};
-
-const DecimaltoGray = (inputValue) => {return ValidInput("Decimal", inputValue) ? Number(parseInt((inputValue ^ (inputValue >> 1)))).toString(2) : "Invalid Input";};
-
-const AsciitoDecimal = (inputValue) => {
-  // code
 }
 
-const DecimaltoAscii = (inputValue) => {
-  // code
+function DecimaltoOutput(outputType, inputValue) {
+  switch (outputType) {
+    case "Binary":
+      return ValidInput("Decimal", inputValue) ? Number(parseInt(inputValue)).toString(2) : "Invalid Input";
+    case "Octal":
+      return ValidInput("Decimal", inputValue) ? Number(parseInt(inputValue)).toString(8) : "Invalid Input";
+    case "Hexadecimal":
+      return ValidInput("Decimal", inputValue) ? Number(parseInt(inputValue)).toString(16) : "Invalid Input";
+    case "BCD":
+      let strBCD = "";
+      if (ValidInput("Decimal", inputValue)) {
+        let arr = inputValue.split("");
+        for (let i = 0; i < arr.length; i++) {
+          strBCD += parseInt(arr[i], 10).toString(2).padStart(4, "0");
+        }
+      }
+      return strBCD ? strBCD : "Invalid Input";
+    case "XS3":
+      let strXS3 = "";
+      if (ValidInput("Decimal", inputValue)) {
+        let arr = inputValue.split("");
+        for (let i = 0; i < arr.length; i++) {
+          strXS3 += (parseInt(arr[i], 10) + 3).toString(2).padStart(4, "0");
+        }
+      }
+      return strXS3 ? strXS3 : "Invalid Input";
+    case "Gray":
+      return ValidInput("Decimal", inputValue) ? Number(parseInt((inputValue ^ (inputValue >> 1)))).toString(2) : "Invalid Input";
+    default: break;
+    }
 }
 
 export default function logic(inputType, outputType, inputValue) {
   if (inputType === "Decimal" || outputType === "Decimal") {
-    let func = `${inputType}to${outputType}`;
-    switch (func) {
-      case "BinarytoDecimal":
-        return BinarytoDecimal(inputValue);
-      case "DecimaltoBinary":
-        return DecimaltoBinary(inputValue);
-      case "OctaltoDecimal":
-        return OctaltoDecimal(inputValue);
-      case "DecimaltoOctal":
-        return DecimaltoOctal(inputValue);
-      case "HexadecimaltoDecimal":
-        return HexadecimaltoDecimal(inputValue);
-      case "DecimaltoHexadecimal":
-        return DecimaltoHexadecimal(inputValue);
-      case "BCDtoDecimal":
-        return BCDtoDecimal(inputValue);
-      case "DecimaltoBCD":
-        return DecimaltoBCD(inputValue);
-      case "XS3toDecimal":
-        return XS3toDecimal(inputValue);
-      case "DecimaltoXS3":
-        return DecimaltoXS3(inputValue);
-      case "GraytoDecimal":
-        return GraytoDecimal(inputValue);
-      case "DecimaltoGray":
-        return DecimaltoGray(inputValue);
-      case "AsciitoDecimal":
-        return AsciitoDecimal(inputValue);
-      case "DecimaltoAscii":
-        return DecimaltoAscii(inputValue);
+    if (inputType === "Decimal") {
+      return DecimaltoOutput(outputType, inputValue);
+    } else {
+      return InputtoDecimal(inputType, inputValue);
     }
+  } else {
+    return DecimaltoOutput(outputType, InputtoDecimal(inputType, inputValue));
   }
 }

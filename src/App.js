@@ -71,7 +71,6 @@ function App() {
                       <MenuItem value="BCD">BCD</MenuItem>
                       <MenuItem value="XS3">XS3</MenuItem>
                       <MenuItem value="Gray">Gray</MenuItem>
-                      <MenuItem value="Ascii">Ascii</MenuItem>
                     </Select>
                   </FormControl>
                 </Grid>
@@ -94,12 +93,12 @@ function App() {
                       <MenuItem value="BCD">BCD</MenuItem>
                       <MenuItem value="XS3">XS3</MenuItem>
                       <MenuItem value="Gray">Gray</MenuItem>
-                      <MenuItem value="Ascii">Ascii</MenuItem>
                     </Select>
                   </FormControl>
                 </Grid>
                 <Grid item laptop={6} tablet={6} mobile={12}>
                   <TextField
+                    type="number"
                     id="inputValue"
                     label="Input Value"
                     variant="outlined"
