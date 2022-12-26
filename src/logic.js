@@ -15,7 +15,7 @@ function ValidInput(inputType, str) {
         if (OctalValues.includes(str[i])) isValid = true; else { isValid = false; break;}
       } break;
     case "Hexadecimal":
-      const HexaValues = ["0","1","2","3","4","5","6","7","8","9","10","A","B","C","D","E","F"];
+      const HexaValues = ["0","1","2","3","4","5","6","7","8","9","10","A","B","C","D","E","F","a","b","c","d","e","f"];
       for (let i = 0; i < str.length; i++) {
         if (HexaValues.includes(str[i])) isValid = true; else { isValid = false; break;}
       } break;
@@ -117,7 +117,6 @@ export default function logic(inputType, outputType, inputValue) {
       return InputtoDecimal(inputType, inputValue);
     }
   } else {
-    let temp = InputtoDecimal(inputType, inputValue) + '';
-    return DecimaltoOutput(outputType, temp);
+    return DecimaltoOutput(outputType, InputtoDecimal(inputType, inputValue) + '');
   }
 }
