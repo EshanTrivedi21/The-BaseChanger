@@ -71,6 +71,7 @@ function App() {
                       <MenuItem value="BCD">BCD</MenuItem>
                       <MenuItem value="XS3">XS3</MenuItem>
                       <MenuItem value="Gray">Gray</MenuItem>
+                      <MenuItem value="Ascii">Ascii</MenuItem>
                     </Select>
                   </FormControl>
                 </Grid>
@@ -93,6 +94,7 @@ function App() {
                       <MenuItem value="BCD">BCD</MenuItem>
                       <MenuItem value="XS3">XS3</MenuItem>
                       <MenuItem value="Gray">Gray</MenuItem>
+                      <MenuItem value="Ascii">Ascii</MenuItem>
                     </Select>
                   </FormControl>
                 </Grid>

@@ -53,10 +53,12 @@ const BCDtoDecimal = (inputValue) => {
 };
 
 const DecimaltoBCD = (inputValue) => {
-  let arr = inputValue.split("");
   let str = "";
-  for (let i = 0; i < arr.length; i++) {
-    str += parseInt(arr[i], 10).toString(2).padStart(4, "0");
+  if (ValidInput("Decimal", inputValue)) {
+    let arr = inputValue.split("");
+    for (let i = 0; i < arr.length; i++) {
+      str += parseInt(arr[i], 10).toString(2).padStart(4, "0");
+    }
   }
   return str ? str : "Invalid Input";
 };
@@ -73,21 +75,35 @@ const XS3toDecimal = (inputValue) => {
 };
 
 const DecimaltoXS3 = (inputValue) => {
-  let arr = inputValue.split("");
   let str = "";
-  for (let i = 0; i < arr.length; i++) {
+  if (ValidInput("Decimal", inputValue)) {
+    let arr = inputValue.split("");
+    for (let i = 0; i < arr.length; i++) {
     str += (parseInt(arr[i], 10) + 3).toString(2).padStart(4, "0");
+    }
   }
   return str ? str : "Invalid Input";
 };
 
-// const GraytoDecimal = () => {
-//   //code
-// };
+const GraytoDecimal = (inputValue) => {
+  let str = 0, flag = false; 
+  if (ValidInput("Binary", inputValue)) {
+    for (; inputValue; inputValue = inputValue >> 1) {
+      str ^= inputValue; flag = true;
+    }
+  }
+  return flag ? str : "Invalid Input";
+};
 
-// const DecimaltoGray = () => {
-//   //code
-// };
+const DecimaltoGray = (inputValue) => {return ValidInput("Decimal", inputValue) ? Number(parseInt((inputValue ^ (inputValue >> 1)))).toString(2) : "Invalid Input";};
+
+const AsciitoDecimal = (inputValue) => {
+  // code
+}
+
+const DecimaltoAscii = (inputValue) => {
+  // code
+}
 
 export default function logic(inputType, outputType, inputValue) {
   if (inputType === "Decimal" || outputType === "Decimal") {
@@ -113,6 +129,14 @@ export default function logic(inputType, outputType, inputValue) {
         return XS3toDecimal(inputValue);
       case "DecimaltoXS3":
         return DecimaltoXS3(inputValue);
+      case "GraytoDecimal":
+        return GraytoDecimal(inputValue);
+      case "DecimaltoGray":
+        return DecimaltoGray(inputValue);
+      case "AsciitoDecimal":
+        return AsciitoDecimal(inputValue);
+      case "DecimaltoAscii":
+        return DecimaltoAscii(inputValue);
     }
   }
 }
