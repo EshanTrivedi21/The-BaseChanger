@@ -117,6 +117,7 @@ export default function logic(inputType, outputType, inputValue) {
       return InputtoDecimal(inputType, inputValue);
     }
   } else {
-    return DecimaltoOutput(outputType, InputtoDecimal(inputType, inputValue));
+    let temp = InputtoDecimal(inputType, inputValue) + '';
+    return DecimaltoOutput(outputType, temp);
   }
 }
