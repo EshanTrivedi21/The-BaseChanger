@@ -1,13 +1,12 @@
 <html>
   <hr>
   <h1> THE BASECHANGER </h1>
-  <h3>A modern tool that allows you to convert a numeric value from one base to another.</h3>
+  <h3>a contemporary tool for converting signed integers of any base to another shifted base.</h3>
   <hr>
-  <p float="left">
-    <img src = "./src/assets/prototypePC.png" style = "width : 76%;"> 
-    <img src = "./src/assets/prototypeMobile.png" style = "width : 22%;"> 
+  <p float="center">
+    <img src="./src/assets/ogTag.png" />
   </p>
   <hr>
-  <h3>Tap on this Link to check it out: https://eshantrivedi21.github.io/The-BaseChanger/</h3>
+  <h3>Check this website <a href="https://the-basechanger.netlify.app/">here</a></h3>
   <hr>
 </html>
