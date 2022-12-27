@@ -36,8 +36,8 @@ function App() {
                 minHeight: { mobile: "100vh", tablet: "auto", laptop: "auto" },
                 backgroundColor: "white",
                 my: "50vh",
-                p: 7,
-                py: { mobile: 10, tablet: 7, laptop: 7 },
+                p: 5,
+                py: { mobile: 14, tablet: 7, laptop: 7 },
                 transform: "translateY(-50%)",
                 overflow: "hidden",
               }}
@@ -127,11 +127,7 @@ function App() {
               <Grid
                 container
                 direction="row"
-                justifyContent={{
-                  mobile: "space-between",
-                  tablet: "flex-end",
-                  laptop: "flex-end",
-                }}
+                justifyContent="flex-end"
                 alignContent="center"
                 columnSpacing={1}
                 sx={{ marginTop: "70px" }}
